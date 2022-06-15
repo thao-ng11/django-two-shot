@@ -14,10 +14,9 @@ from receipts.models import Account, ExpenseCategory, Receipt
 class ReceiptListView(LoginRequiredMixin, ListView):
     model = Receipt
     template_name = "receipts/list.html"
-    paginate_by = 2
 
     def get_queryset(self):
-        return Receipt.objects.filter()
+        return Receipt.objects.filter(purchaser=self.request.user)
 
 
 # class AccountListView(ListView):
