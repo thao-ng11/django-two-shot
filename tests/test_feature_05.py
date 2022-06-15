@@ -161,8 +161,12 @@ class FeatureTests(TestCase):
             )
             for receipt in receipts:
                 inner_text = table.inner_text()
+                print(
+                    "This is the receipt.vendor for the test",
+                    str(receipt.vendor),
+                )
                 self.assertIn(
-                    receipt.vendor,
+                    str(receipt.vendor),
                     inner_text,
                     msg="table did not have receipt vendor in it",
                 )
