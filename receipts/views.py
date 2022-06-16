@@ -6,16 +6,21 @@ from receipts.models import Account, ExpenseCategory, Receipt
 
 # Create your views here.
 
-# class ExpenseCategoryListView(ListView):
-#     model = ExpenseCategory
-#     template_name = "receipts/list.html"
-#     paginate_by = 2
+
+class ExpenseCategoryListView(LoginRequiredMixin, ListView):
+    model = ExpenseCategory
+    template_name = "expense_categories/list.html"
+
+    def get_queryset(self):
+        return ExpenseCategory.objects.filter(owner=self.request.user)
 
 
-# class AccountListView(ListView):
-#     model = Account
-#     template_name = "receipts/list.html"
-#     paginate_by = 2
+class AccountListView(LoginRequiredMixin, ListView):
+    model = Account
+    template_name = "accounts/list.html"
+    
+    def get_queryset(self):
+        return Account.objects.filter(owner=self.request.user)
 
 
 class ReceiptListView(LoginRequiredMixin, ListView):
