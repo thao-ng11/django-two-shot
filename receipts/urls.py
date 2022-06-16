@@ -2,6 +2,7 @@ from django.urls import path
 
 from receipts.views import (
     AccountListView,
+    AccountCreateView,
     ExpenseCategoryListView,
     ExpenseCategoryCreateView,
     ReceiptListView,
@@ -25,5 +26,10 @@ urlpatterns = [
         "accounts/",
         AccountListView.as_view(),
         name="list_accounts",
+    ),
+    path(
+        "accounts/create/",
+        AccountCreateView.as_view(),
+        name="create_account",
     ),
 ]
