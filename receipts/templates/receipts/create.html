@@ -6,18 +6,18 @@
             <form method="post">
                 {% csrf_token %}
                 {{ form.as_p }}
-                <input type="text" name="vendor"/>
+                {% comment %} <input type="text" name="vendor"/>
                 <br />
                 <input type="password" name="total"/>
                 <br />
                 <input type="password" name="tax"/>
                 <br />
-                {% comment %} <input type="password" name="date"/>
-                <br /> {% endcomment %}
+                <input type="password" name="date"/>
+                <br /> 
                 <select name="category">
                 </select>
                 <select name="account">
-                </select>
+                </select> {% endcomment %}
                 <button>Create</button>
             </form>
         </div>
