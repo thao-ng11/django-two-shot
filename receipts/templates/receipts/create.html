@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+    <main>
+        <div class="narrow-form">
+            <h1>Create Receipt</h1>
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <input type="text" name="vendor"/>
+                <br />
+                <input type="password" name="total"/>
+                <br />
+                <input type="password" name="tax"/>
+                <br />
+                {% comment %} <input type="password" name="date"/>
+                <br /> {% endcomment %}
+                <select name="category">
+                </select>
+                <select name="account">
+                </select>
+                <button>Create</button>
+            </form>
+        </div>
+    </main>
+{% endblock content %}
